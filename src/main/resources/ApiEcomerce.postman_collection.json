@@ -1,0 +1,160 @@
+{
+	"variables": [],
+	"info": {
+		"name": "ApiEcomerce",
+		"_postman_id": "b0750264-96e9-e432-2ca0-b3354af1e4f4",
+		"description": "",
+		"schema": "https://schema.getpostman.com/json/collection/v2.0.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Cart",
+			"description": "Endpoints para manejar el carrito de compras",
+			"item": [
+				{
+					"name": "getCart",
+					"request": {
+						"url": "http://localhost:8080/apiCart/getCart",
+						"method": "GET",
+						"header": [],
+						"body": {},
+						"description": "Obtiene todos los productos que estene en el carrito de compras"
+					},
+					"response": []
+				},
+				{
+					"name": "addToCart",
+					"request": {
+						"url": "http://localhost:8080/apiCart/addToCart/3c60d4a2-d601-4c2a-9f4d-aa537478d724",
+						"method": "POST",
+						"header": [],
+						"body": {},
+						"description": "Agrega un producto al carrito de compras enviando el id."
+					},
+					"response": []
+				},
+				{
+					"name": "putToCart",
+					"request": {
+						"url": "http://localhost:8080/apiCart/putToCart/",
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"description": ""
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n        \"uid\": \"effc4b53-58bb-4510-9c25-2606db5d463c\",\n        \"nombre\": \"Taladro\",\n        \"cantidad\": 0,\n        \"descripcion\": \"Taladro electrico\",\n        \"precio\": 157.5,\n        \"estado\": \"PENDIENTE\"\n    }"
+						},
+						"description": "Permite editar un objeto en el carrito de compras, si la cantidad es 0 se eliminara del carrito"
+					},
+					"response": []
+				},
+				{
+					"name": "delToCart",
+					"request": {
+						"url": "http://localhost:8080/apiCart/delToCart/effc4b53-58bb-4510-9c25-2606db5d463c",
+						"method": "POST",
+						"header": [],
+						"body": {},
+						"description": "Elimina un producto del carrito mediante su id."
+					},
+					"response": []
+				},
+				{
+					"name": "getChceckOut",
+					"request": {
+						"url": "http://localhost:8080/apiCart/getChceckOut",
+						"method": "GET",
+						"header": [],
+						"body": {},
+						"description": "Obtiene el resultado de ejecutar el evento checkout."
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Productos",
+			"description": "Enpoints para el catálogo de Productos",
+			"item": [
+				{
+					"name": "getAll",
+					"request": {
+						"url": "http://localhost:8080/api/getAll",
+						"method": "GET",
+						"header": [],
+						"body": {},
+						"description": "Obtiene todos los articulos disponibles en el catalgo"
+					},
+					"response": []
+				},
+				{
+					"name": "addProduct",
+					"request": {
+						"url": "http://localhost:8080/api/addProduct",
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"description": ""
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"nombre\": \"Clavos\",\n\t\"sku\": \"45678oiuyfvbnjmhvcu7\",\n\t\"descripcion\": \"100g de clavos\",\n\t\"precio\": 5,\n\t\"tipo\": \"S\"\n}"
+						},
+						"description": "Agrega un producto al catalogo de productos"
+					},
+					"response": []
+				},
+				{
+					"name": "getbyId",
+					"request": {
+						"url": "http://localhost:8080/api/getbyId/5cfde22b-645c-4f7f-b1fc-51c707999449",
+						"method": "GET",
+						"header": [],
+						"body": {},
+						"description": "Obtiene un elemento del catálogo por su ID"
+					},
+					"response": []
+				},
+				{
+					"name": "putProduct",
+					"request": {
+						"url": "http://localhost:8080/api/putProduct",
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"description": ""
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"uid\": \"5cfde22b-645c-4f7f-b1fc-51c707999449\",\n    \"nombre\": \"Martillo\",\n    \"sku\": \"lkad98327ksjfl\",\n    \"descripcion\": \"Martillo de cartpintero\",\n    \"precio\": 17.5,\n    \"tipo\": \"S\"\n}"
+						},
+						"description": "Permite editar un producto del catálgo"
+					},
+					"response": []
+				},
+				{
+					"name": "delProduct",
+					"request": {
+						"url": "http://localhost:8080/api/delProduct/25a43a93-05ab-4911-9e44-ff0b8826be06",
+						"method": "POST",
+						"header": [],
+						"body": {},
+						"description": "Permite borrar un producto mediante su id."
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}
